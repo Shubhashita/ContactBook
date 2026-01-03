@@ -81,12 +81,6 @@ const AllContact = () => {
             <Link to="/create" className="btn-accent">
               + New Contact
             </Link>
-            <button
-              onClick={() => window.location.reload()}
-              className="btn-primary-custom"
-            >
-              Reload List
-            </button>
           </div>
         </div>
 
