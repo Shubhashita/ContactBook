@@ -78,9 +78,13 @@ const AllContact = () => {
         <div className="page-header">
           <h1>Your Contacts</h1>
           <div className="d-flex gap-2">
-            <Link to="/create" className="btn-accent">
-              + New Contact
-            </Link>
+
+            <button
+              onClick={() => window.location.reload()}
+              className="btn-primary-custom"
+            >
+              Reload List
+            </button>
           </div>
         </div>
 
@@ -91,9 +95,7 @@ const AllContact = () => {
             {contacts.length === 0 ? (
               <div className="text-center py-5">
                 <h3 className="text-muted">No contacts created yet</h3>
-                <Link to="/create" className="btn-accent mt-3">
-                  Create your first contact
-                </Link>
+
               </div>
             ) : (
               <>
