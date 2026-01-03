@@ -6,7 +6,7 @@ import ToastContext from "../context/ToastContext";
 const Navbar = ({ title = "CMS" }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, loading } = useContext(AuthContext);
   const { toast } = useContext(ToastContext);
 
   return (
@@ -30,7 +30,7 @@ const Navbar = ({ title = "CMS" }) => {
 
         <div className="collapse navbar-collapse" id="navbarColor01">
           <ul className="navbar-nav ms-auto align-items-center">
-            {user ? (
+            {loading ? null : user ? (
               <>
                 {location.pathname !== "/mycontacts" && (
                   <li className="nav-item">

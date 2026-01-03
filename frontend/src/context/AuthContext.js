@@ -13,6 +13,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     checkUserLoggedIn();
@@ -43,8 +44,10 @@ export const AuthContextProvider = ({ children }) => {
       } else {
         navigate("/login", { replace: true });
       }
+      setLoading(false);
     } catch (err) {
       console.log(err);
+      setLoading(false);
     }
   };
 
@@ -97,7 +100,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ loginUser, registerUser, user, setUser }}>
+    <AuthContext.Provider value={{ loginUser, registerUser, user, setUser, loading }}>
       {children}
     </AuthContext.Provider>
   );
