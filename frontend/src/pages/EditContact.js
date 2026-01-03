@@ -29,7 +29,7 @@ const EditContact = () => {
     event.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:8000/api/contact`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:8000'}/api/contact`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ const EditContact = () => {
     const fetchContact = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:8000/api/contact/${id}`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:8000'}/api/contact/${id}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
